@@ -1,0 +1,4 @@
+############ This is the default Tor Hidden Service config ############
+
+HiddenServiceDir /config/tor/services/default_hidden_service/
+HiddenServicePort 80 127.0.0.1:80

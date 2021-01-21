@@ -1,0 +1,19 @@
+#!/usr/bin/with-contenv bash
+
+# Folders and whatnot
+mkdir -p \
+    /config/{tor/confs,tor/data,tor/services}
+
+# Copy the default files
+[[ ! -f /config/tor/torrc ]] && \
+    cp /defaults/torrc.conf /config/tor/torrc.conf
+[[ ! -f /config/tor/site-confs/default ]] && \
+    cp /defaults/defaulttor /config/tor/confs/default
+
+# Permissions... Yay
+chown -R abc:abc \
+    /config/
+chmod -R 770 \
+    /config/tor
+find /config/tor/{data,services}/ -type d -exec chmod 700 {} \;
+find /config/tor/{data,services}/ -type f -exec chmod 600 {} \;

@@ -1,0 +1,15 @@
+#!/usr/bin/with-contenv bash
+
+if pgrep -f "tor" > /dev/null; then
+    echo "Zombie tor processes detected, sending SIGTERM"
+    pkill -ef tor:
+    sleep 1
+fi
+
+if pgrep -f "tor" > /dev/null; then
+    echo "Zombie tor still active, sending SIGKILL"
+    pkill -9 -ef tor:
+    sleep 1
+fi
+
+exec /usr/bin/tor -f /config/tor/torrc.conf
