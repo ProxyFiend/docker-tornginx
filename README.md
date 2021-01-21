@@ -4,7 +4,7 @@ Something I put together so it was easier to put up a hidden service. Based on l
 It's a Nginx server, a PHP instance, and Tor running in a container. It could also be used as a relay, but that is beyond my scope.
 
 ### Usage
-```docker run -d --name tornginx -v /path/to/appdata:/config```
+```docker run -d --name tornginx -v /path/to/appdata:/config proxyfiend/tornginx```
 
 ### FAQ
 
@@ -20,3 +20,6 @@ It's a Nginx server, a PHP instance, and Tor running in a container. It could al
 
    Yep. One folder. And the only reason for that is persistance across sessions so your website doesn't delete itself if the power goes out.
    
+* How safe is this?
+
+   Well, depends on what you mean. If you're asking about safe to run, feel free to check the code. If I made a mistake, open an issue. If you're asking about using this for illegal stuff, please don't. This is not meant for crime. It's more of a docker learning experience than anything. Also, even if it's running in a container, you are still personally hosting a tor hidden service. You will get caught. Also, MIT license, I am not responsible. <3
